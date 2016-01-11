@@ -29,17 +29,17 @@ public class driveSystem extends Subsystem {
     private final SpeedController leftRear = RobotMap.driveSystemleftRear;
     private final SpeedController rightFront = RobotMap.driveSystemrightFront;
     private final SpeedController rightRear = RobotMap.driveSystemrightRear;
-    private final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
+    public final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
 
-
-
+    
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
     public void initDefaultCommand() {
-
+    		
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+ 
     }
 }
 
