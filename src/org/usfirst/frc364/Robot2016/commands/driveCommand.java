@@ -32,7 +32,7 @@ public class driveCommand extends Command {
     	
     	double left = Robot.oi.leftStick.getY();
     	double right = Robot.oi.rightStick.getY();
-    	
+
     	Robot.driveSystem.robotDrive.tankDrive(left, right);
     }
 

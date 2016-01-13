@@ -13,10 +13,11 @@ package org.usfirst.frc364.Robot2016.subsystems;
 
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
+
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -30,6 +31,7 @@ public class driveSystem extends Subsystem {
     private final SpeedController rightFront = RobotMap.driveSystemrightFront;
     private final SpeedController rightRear = RobotMap.driveSystemrightRear;
     public final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
+    public final AnalogInput gyro = RobotMap.driveSystemgyro;
 
     
     
