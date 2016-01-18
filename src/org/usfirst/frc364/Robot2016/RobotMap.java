@@ -40,6 +40,7 @@ public class RobotMap {
     public static DigitalInput intakeSystemballSensor;
     public static SpeedController shootSystemshootMotor;
     public static AnalogInput driveSystemgyro;
+    public static DigitalInput intakeSystemshootSensor;
 
     public static void init() { 
 
@@ -63,16 +64,13 @@ public class RobotMap {
         driveSystemrobotDrive.setSensitivity(0.5);
         driveSystemrobotDrive.setMaxOutput(1.0);
 
-        shiftSystemleftShifter = new DoubleSolenoid(0, 0, 1);
-        LiveWindow.addActuator("shiftSystem", "leftShifter", shiftSystemleftShifter);
-        
-        shiftSystemrightShifter = new DoubleSolenoid(0, 2, 3);
-        LiveWindow.addActuator("shiftSystem", "rightShifter", shiftSystemrightShifter);
-        
         intakeSystemintakeMotor = new VictorSP(4);
         LiveWindow.addActuator("intakeSystem", "intakeMotor", (VictorSP) intakeSystemintakeMotor);
         
         intakeSystemballSensor = new DigitalInput(0);
+        LiveWindow.addSensor("intakeSystem", "ballSensor", intakeSystemballSensor);
+        
+        intakeSystemshootSensor = new DigitalInput(1);
         LiveWindow.addSensor("intakeSystem", "ballSensor", intakeSystemballSensor);
         
         shootSystemshootMotor = new VictorSP(5);
