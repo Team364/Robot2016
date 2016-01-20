@@ -33,7 +33,6 @@ public class Robot extends IterativeRobot {
 
     public static OI oi;
     public static driveSystem driveSystem;
-    public static shiftSystem shiftSystem;
     public static intakeSystem intakeSystem;
     public static shootSystem shootSystem;
     public static hangSystem hangSystem;
@@ -45,7 +44,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     RobotMap.init();
         driveSystem = new driveSystem();
-        shiftSystem = new shiftSystem();
         intakeSystem = new intakeSystem();
         shootSystem = new shootSystem();
         hangSystem = new hangSystem();
