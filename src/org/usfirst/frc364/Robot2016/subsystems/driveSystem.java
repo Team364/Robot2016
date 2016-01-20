@@ -28,6 +28,10 @@ public class driveSystem extends Subsystem {
     private final SpeedController rightRear = RobotMap.driveSystemrightRear;
     public final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
     public final AnalogInput gyro = RobotMap.driveSystemgyro;
+    
+    public void drive(double left, double right) {
+    	robotDrive.tankDrive(left, right);
+    }
 
     public void initDefaultCommand() {	
     	setDefaultCommand(new driveCommand());
