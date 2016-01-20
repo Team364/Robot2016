@@ -19,23 +19,17 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class intakeSystem extends Subsystem {
 
     private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
     private final DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
-
-
-
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
+    public void intakeBall() {
+    	//Create the sequence for intaking a ball here.
+    }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new intakeCommand());
     }
 }
 

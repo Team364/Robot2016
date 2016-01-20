@@ -15,23 +15,21 @@ import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class shootSystem extends Subsystem {
 
     private final SpeedController shootMotor = RobotMap.shootSystemshootMotor;
-
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
+    
+    public void shoot() {
+    	//Create the sequence to shoot the ball here.
+    	//I have inserted a reference to the intakeMotor so that you can use it in this class 
+    	//without typing out Robot.intakeSystem.intakeMotor.set();.
+    }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new shootCommand());
     }
 }
 

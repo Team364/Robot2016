@@ -20,10 +20,6 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class driveSystem extends Subsystem {
 
     private final SpeedController leftFront = RobotMap.driveSystemleftFront;
@@ -33,15 +29,8 @@ public class driveSystem extends Subsystem {
     public final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
     public final AnalogInput gyro = RobotMap.driveSystemgyro;
 
-    
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    public void initDefaultCommand() {
-    		
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
- 
+    public void initDefaultCommand() {	
+    	setDefaultCommand(new driveCommand());
     }
 }
 

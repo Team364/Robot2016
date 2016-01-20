@@ -14,13 +14,10 @@ package org.usfirst.frc364.Robot2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc364.Robot2016.Robot;
 
-/**
- *
- */
 public class shootCommand extends Command {
 
     public shootCommand() {
-
+    	requires(Robot.shootSystem);
     }
 
     // Called just before this Command runs the first time

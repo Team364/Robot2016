@@ -40,21 +40,16 @@ public class RobotMap {
     public static DigitalInput intakeSystemballSensor;
     public static SpeedController shootSystemshootMotor;
     public static AnalogInput driveSystemgyro;
-    public static DigitalInput intakeSystemshootSensor;
+    public static SpeedController hangSystemwinchMotor;
+    public static SpeedController hangSystemflipMotor;
+    public static AnalogInput hangSystempot;
 
     public static void init() { 
 
         driveSystemleftFront = new VictorSP(0);
-        LiveWindow.addActuator("driveSystem", "leftFront", (VictorSP) driveSystemleftFront);
-        
-        driveSystemleftRear = new VictorSP(1);
-        LiveWindow.addActuator("driveSystem", "leftRear", (VictorSP) driveSystemleftRear);
-        
-        driveSystemrightFront = new VictorSP(2);
-        LiveWindow.addActuator("driveSystem", "rightFront", (VictorSP) driveSystemrightFront);
-        
+        driveSystemleftRear = new VictorSP(1);       
+        driveSystemrightFront = new VictorSP(2);        
         driveSystemrightRear = new VictorSP(3);
-        LiveWindow.addActuator("driveSystem", "rightRear", (VictorSP) driveSystemrightRear);
         
         driveSystemrobotDrive = new RobotDrive(driveSystemleftFront, driveSystemleftRear,
               driveSystemrightFront, driveSystemrightRear);
@@ -63,20 +58,16 @@ public class RobotMap {
         driveSystemrobotDrive.setExpiration(0.1);
         driveSystemrobotDrive.setSensitivity(0.5);
         driveSystemrobotDrive.setMaxOutput(1.0);
+        driveSystemgyro = new AnalogInput(0);
 
-        intakeSystemintakeMotor = new VictorSP(4);
-        LiveWindow.addActuator("intakeSystem", "intakeMotor", (VictorSP) intakeSystemintakeMotor);
-        
+        intakeSystemintakeMotor = new VictorSP(4); 
         intakeSystemballSensor = new DigitalInput(0);
-        LiveWindow.addSensor("intakeSystem", "ballSensor", intakeSystemballSensor);
-        
-        intakeSystemshootSensor = new DigitalInput(1);
-        LiveWindow.addSensor("intakeSystem", "ballSensor", intakeSystemballSensor);
         
         shootSystemshootMotor = new VictorSP(5);
-        LiveWindow.addActuator("shootSystem", "shootMotor", (VictorSP) shootSystemshootMotor);
         
-        driveSystemgyro = new AnalogInput(0);
+        hangSystemwinchMotor = new VictorSP(6);
+        hangSystemflipMotor = new VictorSP(7);
+        hangSystempot = new AnalogInput(0);
         
         
     }

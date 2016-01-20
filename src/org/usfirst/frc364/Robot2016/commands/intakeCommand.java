@@ -14,13 +14,10 @@ package org.usfirst.frc364.Robot2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc364.Robot2016.Robot;
 
-/**
- *
- */
 public class intakeCommand extends Command {
 
     public intakeCommand() {
-
+    	requires(Robot.intakeSystem);
     }
 
     // Called just before this Command runs the first time

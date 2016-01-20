@@ -14,21 +14,30 @@ package org.usfirst.frc364.Robot2016.subsystems;
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class hangSystem extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	public final SpeedController winchMotor = RobotMap.hangSystemwinchMotor;
+	public final SpeedController flipMotor = RobotMap.hangSystemflipMotor;
+	public final AnalogInput pot = RobotMap.hangSystempot;
 
+	public void flipHangBars() {
+		//Create the sequence to flip the hanging bars into hanging position here.
+	}
+	
+	public void extendHangBars() {
+		//Create the sequence to extend the hanging bars up to hang here.
+	}
+	
+	public void hangFromCastle() {
+		//Create the sequence to hang from the castle here.
+	}
+	
     public void initDefaultCommand() {
-    	
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new hangCommand());
     }
 }
 
