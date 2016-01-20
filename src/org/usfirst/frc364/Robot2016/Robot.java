@@ -107,8 +107,6 @@ public class Robot extends IterativeRobot {
     }
     
     public void smartDashVariables() {
-    
-    SmartDashboard.putDouble(Gryo, Robot.driveSystem.);
-    } 
+     
     }
 }
