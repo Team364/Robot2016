@@ -26,6 +26,9 @@ public class intakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	double yaxis = Robot.oi.controller.getRawAxis(1);
+    	
+    	Robot.intakeSystem.intakeDrive.arcadeDrive(yaxis, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

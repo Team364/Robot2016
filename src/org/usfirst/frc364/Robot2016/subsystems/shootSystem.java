@@ -32,4 +32,3 @@ public class shootSystem extends Subsystem {
     	setDefaultCommand(new shootCommand());
     }
 }
-

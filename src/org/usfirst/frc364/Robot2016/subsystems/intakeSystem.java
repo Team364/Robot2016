@@ -13,16 +13,18 @@ package org.usfirst.frc364.Robot2016.subsystems;
 
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
+
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class intakeSystem extends Subsystem {
 
     private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
     private final DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
+    public final RobotDrive intakeDrive = RobotMap.intakeSystemintakeDrive;
     
     public void intakeBall() {
     	//Create the sequence for intaking a ball here.

@@ -43,6 +43,7 @@ public class RobotMap {
     public static SpeedController hangSystemwinchMotor;
     public static SpeedController hangSystemflipMotor;
     public static AnalogInput hangSystempot;
+	public static RobotDrive intakeSystemintakeDrive;
 
     public static void init() { 
 
