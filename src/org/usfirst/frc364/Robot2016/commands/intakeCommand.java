@@ -26,9 +26,24 @@ public class intakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	boolean intakeBall = Robot.oi.controller.getRawButton(0);
     	double yaxis = Robot.oi.controller.getRawAxis(1);
+    	double xaxis = Robot.oi.controller.getRawAxis(2);
     	
-    	Robot.intakeSystem.intakeDrive.arcadeDrive(yaxis, 0);
+    	//This runs the manual intake
+    	if(yaxis > 0.05 || yaxis < -0.05) { 
+        	Robot.intakeSystem.manualIntake(yaxis);
+    	}
+    	//This runs the manual pulley
+    	if(xaxis > 0.05 || xaxis < -0.05) {
+    		Robot.intakeSystem.manualPulley(xaxis);
+    	}
+    	
+    	//This runs the intake ball sequence
+    	if(intakeBall == true) {
+    		Robot.intakeSystem.intakeBall();
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -36,7 +51,7 @@ public class intakeCommand extends Command {
         return false;
     }
 
-    // Called once after isFinished returns true
+    // Called once after is Finished returns true
     protected void end() {
     }
 

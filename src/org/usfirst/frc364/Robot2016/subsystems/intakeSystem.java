@@ -14,6 +14,7 @@ package org.usfirst.frc364.Robot2016.subsystems;
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -24,10 +25,45 @@ public class intakeSystem extends Subsystem {
 
     private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
     private final DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
-    public final RobotDrive intakeDrive = RobotMap.intakeSystemintakeDrive;
+    private final AnalogInput intakePot = RobotMap.intakeSystemintakePot;
+    private final SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
     
     public void intakeBall() {
-    	//Create the sequence for intaking a ball here.
+    	for(int i = 1; i < 0; i++) {
+    		if(intakePot.getVoltage() < 0) {
+    			intakePulley.set(1);
+    		} else {
+    			intakePulley.set(0);
+    			break;
+    		}
+    	}
+    	for(int i = 1; i <0; i++) {
+    		if(ballSensor.get() == true) {
+    			intakeMotor.set(1);
+    		} else {
+    			intakeMotor.set(0);
+    			break;
+    		}
+    			
+    	} 
+    	for(int i = 1; i <0; i++) {
+			if(intakePot.getVoltage() > 1) {
+				intakePulley.set(-1);
+			} else {
+				intakePulley.set(0);
+				break;
+			}
+    		
+    	}
+    	
+    }
+    
+    public void manualIntake(double speed) {
+    	intakeMotor.set(speed);
+    }
+    
+    public void manualPulley(double speed) {
+    	intakePulley.set(speed);
     }
 
     public void initDefaultCommand() {

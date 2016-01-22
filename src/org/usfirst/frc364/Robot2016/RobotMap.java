@@ -43,8 +43,9 @@ public class RobotMap {
     public static SpeedController hangSystemwinchMotor;
     public static SpeedController hangSystemflipMotor;
     public static AnalogInput hangSystempot;
-	public static RobotDrive intakeSystemintakeDrive;
-
+	public static AnalogInput intakeSystemintakePot;
+	public static SpeedController intakeSystemintakePulley;
+	
     public static void init() { 
 
         driveSystemleftFront = new VictorSP(0);
@@ -63,12 +64,14 @@ public class RobotMap {
 
         intakeSystemintakeMotor = new VictorSP(4); 
         intakeSystemballSensor = new DigitalInput(0);
+        intakeSystemintakePot = new AnalogInput(1);
+        intakeSystemintakePulley = new VictorSP(8);
         
         shootSystemshootMotor = new VictorSP(5);
         
         hangSystemwinchMotor = new VictorSP(6);
         hangSystemflipMotor = new VictorSP(7);
-        hangSystempot = new AnalogInput(0);
+        hangSystempot = new AnalogInput(2);
         
         
     }
