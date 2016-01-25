@@ -29,29 +29,32 @@ public class intakeSystem extends Subsystem {
     private final SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
     
     public void intakeBall() {
+    	flipPulley:
     	for(int i = 1; i < 0; i++) {
     		if(intakePot.getVoltage() < 0) {
     			intakePulley.set(1);
     		} else {
     			intakePulley.set(0);
-    			break;
+    			break flipPulley;
     		}
     	}
+    	intakeBall:
     	for(int i = 1; i <0; i++) {
     		if(ballSensor.get() == true) {
     			intakeMotor.set(1);
     		} else {
     			intakeMotor.set(0);
-    			break;
+    			break intakeBall;
     		}
     			
-    	} 
+    	}
+    	unFlipPulley:
     	for(int i = 1; i <0; i++) {
 			if(intakePot.getVoltage() > 1) {
 				intakePulley.set(-1);
 			} else {
 				intakePulley.set(0);
-				break;
+				break unFlipPulley;
 			}
     		
     	}
