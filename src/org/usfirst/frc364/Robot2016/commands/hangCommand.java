@@ -35,9 +35,21 @@ public class hangCommand extends Command {
     protected void execute() {	
     	if(up == true) {
     		hangSystem.manualFlip(1);
-    		
-    		
+    	} if(down == true) {
+    		hangSystem.manualFlip(-1);
+    	} else {
+    		hangSystem.manualFlip(0);
     	}
+    	
+    	if(left == true) {
+    		hangSystem.manualWench(1);
+    	} if(right == true) {
+    		hangSystem.manualWench(-1);
+    	} else {
+    		hangSystem.manualWench(0);
+    	}
+    	
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
