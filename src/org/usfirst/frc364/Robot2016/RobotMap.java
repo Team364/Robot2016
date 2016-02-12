@@ -40,7 +40,7 @@ public class RobotMap {
     public static DigitalInput intakeSystemballSensor;
     public static SpeedController shootSystemshootMotor;
     public static AnalogInput driveSystemgyro;
-    public static SpeedController hangSystemwinchMotor;
+    public static SpeedController hangSystemwenchMotor;
     public static SpeedController hangSystemflipMotor;
     public static AnalogInput hangSystempot;
 	public static AnalogInput intakeSystemintakePot;
@@ -69,7 +69,7 @@ public class RobotMap {
         
         shootSystemshootMotor = new VictorSP(5);
         
-        hangSystemwinchMotor = new VictorSP(6);
+        hangSystemwenchMotor = new VictorSP(6);
         hangSystemflipMotor = new VictorSP(7);
         hangSystempot = new AnalogInput(2);
         

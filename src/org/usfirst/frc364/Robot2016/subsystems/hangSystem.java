@@ -20,12 +20,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class hangSystem extends Subsystem {
 
-	public final SpeedController winchMotor = RobotMap.hangSystemwinchMotor;
+	public final SpeedController wenchMotor = RobotMap.hangSystemwenchMotor;
 	public final SpeedController flipMotor = RobotMap.hangSystemflipMotor;
 	public final AnalogInput pot = RobotMap.hangSystempot;
 
 	public void flipHangBars() {
-		//Create the sequence to flip the hanging bars into hanging position here.
+		//Create the sequence to flip the hanging bars into hanging position here.		
 	}
 	
 	public void extendHangBars() {
@@ -34,6 +34,15 @@ public class hangSystem extends Subsystem {
 	
 	public void hangFromCastle() {
 		//Create the sequence to hang from the castle here.
+	}
+	
+	public void manualFlip(double power) {
+		//Create the manual move for the tilt.	
+						
+	}
+	
+	public void manualWench() {
+		//Create the manual move for the wench.
 	}
 	
     public void initDefaultCommand() {

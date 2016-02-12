@@ -12,10 +12,17 @@
 package org.usfirst.frc364.Robot2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc364.Robot2016.Robot;
+import org.usfirst.frc364.Robot2016.subsystems.hangSystem;
 
 public class hangCommand extends Command {
 
+	boolean up = Robot.oi.controller.getRawButton(4);
+	boolean down = Robot.oi.controller.getRawButton(1);
+	boolean left = Robot.oi.controller.getRawButton(3);
+	boolean right = Robot.oi.controller.getRawButton(2);
+	
     public hangCommand() {
     	requires(Robot.hangSystem);
     }
@@ -25,7 +32,12 @@ public class hangCommand extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute() {	
+    	if(up == true) {
+    		hangSystem.manualFlip(1);
+    		
+    		
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

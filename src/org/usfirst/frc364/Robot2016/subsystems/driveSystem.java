@@ -22,10 +22,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class driveSystem extends Subsystem {
 
-    private final SpeedController leftFront = RobotMap.driveSystemleftFront;
-    private final SpeedController leftRear = RobotMap.driveSystemleftRear;
-    private final SpeedController rightFront = RobotMap.driveSystemrightFront;
-    private final SpeedController rightRear = RobotMap.driveSystemrightRear;
     public final RobotDrive robotDrive = RobotMap.driveSystemrobotDrive;
     public final AnalogInput gyro = RobotMap.driveSystemgyro;
     

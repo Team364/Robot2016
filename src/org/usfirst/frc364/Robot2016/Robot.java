@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot {
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        smartDashVariables();
     }
 
     public void autonomousInit() {
@@ -81,6 +82,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        smartDashVariables();
     }
 
     public void teleopInit() {
