@@ -23,13 +23,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class intakeSystem extends Subsystem {
 
-    private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
-    private final DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
-    private final AnalogInput intakePot = RobotMap.intakeSystemintakePot;
-    private final SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
+    private SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
+    private DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
+    private AnalogInput intakePot = RobotMap.intakeSystemintakePot;
+    private SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
     
     public void intakeBall() {
-    	
+    	/*
     	for(int i = 1; i < 0; i++) {
     		if(intakePot.getVoltage() < 0) {
     			intakePulley.set(1);
@@ -58,9 +58,9 @@ public class intakeSystem extends Subsystem {
 			}
     		
     	}
-    	
+    	*/
     }
-    
+
     public void manualIntake(double speed) {
     	intakeMotor.set(speed);
     }

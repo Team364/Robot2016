@@ -11,9 +11,11 @@
 
 package org.usfirst.frc364.Robot2016.subsystems;
 
+import org.usfirst.frc364.Robot2016.Robot;
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -23,9 +25,14 @@ public class shootSystem extends Subsystem {
     private final SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
     
     public void shoot() {
-    	//Create the sequence to shoot the ball here.
-    	//I have inserted a reference to the intakeMotor so that you can use it in this class 
-    	//without typing out Robot.intakeSystem.intakeMotor.set();.
+    	intakeMotor.set(-0.3);
+    	Timer.delay(0.4);
+    	intakeMotor.set(0);
+    	shootMotor.set(1);
+    	Timer.delay(1);
+    	intakeMotor.set(1);
+    	Timer.delay(0.5);
+    	intakeMotor.set(0);
     }
 
     public void initDefaultCommand() {

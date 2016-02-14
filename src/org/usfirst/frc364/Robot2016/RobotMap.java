@@ -49,10 +49,10 @@ public class RobotMap {
 	
     public static void init() { 
 
-        driveSystemleftFront = new VictorSP(0);
-        driveSystemleftRear = new VictorSP(1);       
-        driveSystemrightFront = new VictorSP(2);        
-        driveSystemrightRear = new VictorSP(3);
+        driveSystemleftFront = new VictorSP(4);
+        driveSystemleftRear = new VictorSP(5);       
+        driveSystemrightFront = new VictorSP(1);        
+        driveSystemrightRear = new VictorSP(0);
         
         driveSystemrobotDrive = new RobotDrive(driveSystemleftFront, driveSystemleftRear,
               driveSystemrightFront, driveSystemrightRear);
@@ -63,15 +63,15 @@ public class RobotMap {
         driveSystemrobotDrive.setMaxOutput(1.0);
         driveSystemgyro = new AnalogInput(0);
 
-        intakeSystemintakeMotor = new VictorSP(4); 
+        intakeSystemintakeMotor = new VictorSP(6); 
         intakeSystemballSensor = new DigitalInput(0);
         intakeSystemintakePot = new AnalogInput(1);
-        intakeSystemintakePulley = new VictorSP(8);
+        intakeSystemintakePulley = new VictorSP(9);
         
-        shootSystemshootMotor = new VictorSP(5);
+        shootSystemshootMotor = new VictorSP(7);
         
-        hangSystemwenchMotor = new VictorSP(6);
-        hangSystemflipMotor = new VictorSP(7);
+        hangSystemwenchMotor = new VictorSP(2);
+        hangSystemflipMotor = new VictorSP(3);
         hangSystemwenchPot = new AnalogInput(2);
         hangSystemflipPot = new AnalogInput(3);
         

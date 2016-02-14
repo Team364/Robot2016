@@ -20,33 +20,45 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class hangSystem extends Subsystem {
 
-	public final SpeedController wenchMotor = RobotMap.hangSystemwenchMotor;
-	public final SpeedController flipMotor = RobotMap.hangSystemflipMotor;
-	public final AnalogInput pot = RobotMap.hangSystempot;
-
-	public void flipHangBars() {
-		//Create the sequence to flip the hanging bars into hanging position here.		
-	}
+	public SpeedController wenchMotor = RobotMap.hangSystemwenchMotor;
+	public static AnalogInput wenchPot = RobotMap.hangSystemwenchPot;
 	
+	public hangSystem() {
+		/*
+		super("hangSystem", 1.0, 0.0, 0.0);
+		enable();
+		setAbsoluteTolerance(0);
+		getPIDController().setContinuous(false);
+		getPIDController().setOutputRange(-1, 1);
+		setSetpoint(1);
+		*/
+	}
+/*	
 	public void extendHangBars() {
-		//Create the sequence to extend the hanging bars up to hang here.
+		setSetpoint(1);
 	}
 	
 	public void hangFromCastle() {
-		//Create the sequence to hang from the castle here.
+		setSetpoint(1);
 	}
-	
-	public void manualFlip(double power) {
-		//Create the manual move for the tilt.	
-						
-	}
-	
-	public void manualWench() {
-		//Create the manual move for the wench.
+*/
+	public void manualWench(double power) {
+		// setSetpoint(power + wenchPot.getVoltage());
+		wenchMotor.set(power);
 	}
 	
     public void initDefaultCommand() {
     	setDefaultCommand(new hangCommand());
     }
+/*
+	protected double returnPIDInput() {
+		// TODO Auto-generated method stub
+		return wenchPot.getAverageVoltage();
+	}
+
+	protected void usePIDOutput(double output) {
+		wenchMotor.set(output);
+	}
+	*/
 }
 

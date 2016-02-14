@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -34,6 +35,7 @@ public class Robot extends IterativeRobot {
     public static shootSystem shootSystem;
     public static hangSystem hangSystem;
     public static cameraSystem cameraSystem;
+    public static flipSystem flipSystem;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -46,6 +48,7 @@ public class Robot extends IterativeRobot {
         shootSystem = new shootSystem();
         hangSystem = new hangSystem();
         cameraSystem = new cameraSystem();
+        flipSystem = new flipSystem();
 
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be
@@ -110,8 +113,13 @@ public class Robot extends IterativeRobot {
     
 	public void smartDashVariables() {
     	SmartDashboard.putNumber("PulleyPot", RobotMap.intakeSystemintakePot.getVoltage());
-    	SmartDashboard.putNumber("HangPot", RobotMap.hangSystempot.getVoltage());
+    	SmartDashboard.putNumber("flipPot", RobotMap.hangSystemflipPot.getVoltage());
+    	SmartDashboard.putNumber("wenchPot", RobotMap.hangSystemwenchPot.getVoltage());
     	SmartDashboard.putBoolean("BallSensor", RobotMap.intakeSystemballSensor.get());
     }
+
+	public static Subsystem flipSystem() {
+		return null;
+	}
 	
 }

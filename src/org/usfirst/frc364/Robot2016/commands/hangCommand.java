@@ -17,37 +17,34 @@ import org.usfirst.frc364.Robot2016.Robot;
 import org.usfirst.frc364.Robot2016.subsystems.hangSystem;
 
 public class hangCommand extends Command {
-
-	boolean up = Robot.oi.controller.getRawButton(4);
-	boolean down = Robot.oi.controller.getRawButton(1);
-	boolean left = Robot.oi.controller.getRawButton(3);
-	boolean right = Robot.oi.controller.getRawButton(2);
 	
     public hangCommand() {
     	requires(Robot.hangSystem);
     }
 
-    // Called just before this Command runs the first time
+
     protected void initialize() {
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {	
-    	if(up == true) {
-    		hangSystem.manualFlip(1);
-    	} if(down == true) {
-    		hangSystem.manualFlip(-1);
-    	} else {
-    		hangSystem.manualFlip(0);
-    	}
+    	
+    	//boolean hangButton = Robot.oi.controller.getRawButton(1);
+    	boolean left = Robot.oi.controller.getRawButton(3);
+    	boolean right = Robot.oi.controller.getRawButton(2);
     	
     	if(left == true) {
-    		hangSystem.manualWench(1);
+    		Robot.hangSystem.manualWench(1);
     	} if(right == true) {
-    		hangSystem.manualWench(-1);
+    		Robot.hangSystem.manualWench(-1);
     	} else {
-    		hangSystem.manualWench(0);
+    		Robot.hangSystem.manualWench(0);
     	}
+    	/*
+    	if(hangButton == true) {
+    		Robot.hangSystem.hangFromCastle();
+    	}
+    	*/
     	
     	
     }

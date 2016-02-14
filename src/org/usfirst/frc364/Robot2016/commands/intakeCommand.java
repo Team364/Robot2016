@@ -26,7 +26,7 @@ public class intakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean intakeBall = Robot.oi.controller.getRawButton(0);
+    	boolean intakeBall = Robot.oi.controller.getRawButton(6);
     	double yaxis = Robot.oi.controller.getRawAxis(1);
     	double xaxis = Robot.oi.controller.getRawAxis(2);
     	
@@ -38,11 +38,12 @@ public class intakeCommand extends Command {
     	if(xaxis > 0.05 || xaxis < -0.05) {
     		Robot.intakeSystem.manualPulley(xaxis);
     	}
-    	
+    	/*
     	//This runs the intake ball sequence
     	if(intakeBall == true) {
     		Robot.intakeSystem.intakeBall();
     	}
+    	*/
     	
     }
 
