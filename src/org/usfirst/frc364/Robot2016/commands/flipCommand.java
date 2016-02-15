@@ -5,9 +5,6 @@ import org.usfirst.frc364.Robot2016.subsystems.flipSystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class flipCommand extends Command {
 	
 	//boolean flipHangers = Robot.oi.controller.getRawButton(2);
@@ -23,21 +20,18 @@ public class flipCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	boolean up = Robot.oi.controller.getRawButton(4);
-    	boolean down = Robot.oi.controller.getRawButton(1);
-    	
-    	if(up == true) {
+    	if(Robot.oi.flipManualUp.get() == true) {
     		Robot.flipSystem.manualFlip(1);
-    	} if(down == true) {
+    	} if(Robot.oi.flipManualDown.get() == true) {
     		Robot.flipSystem.manualFlip(-1);
     	} else {
     		Robot.flipSystem.manualFlip(0);
     	}
-    	/*
-    	if(flipHangers == true) {
+    	if(Robot.oi.flipHangBars.get() == true) {
     		Robot.flipSystem.flipHangBars();
+    		Robot.hangSystem.extendHangBars();
     	}
-    	*/
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,6 +41,7 @@ public class flipCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	end();
     }
 
     // Called when another command which requires one or more of the same

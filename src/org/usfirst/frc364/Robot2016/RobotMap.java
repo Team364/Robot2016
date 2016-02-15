@@ -41,10 +41,10 @@ public class RobotMap {
     public static SpeedController shootSystemshootMotor;
     public static AnalogInput driveSystemgyro;
     public static SpeedController hangSystemwenchMotor;
-    public static SpeedController hangSystemflipMotor;
+    public static SpeedController flipSystemflipMotor;
     public static AnalogInput hangSystemwenchPot;
 	public static AnalogInput intakeSystemintakePot;
-	public static AnalogInput hangSystemflipPot;
+	public static AnalogInput flipSystemflipPot;
 	public static SpeedController intakeSystemintakePulley;
 	
     public static void init() { 
@@ -71,9 +71,9 @@ public class RobotMap {
         shootSystemshootMotor = new VictorSP(7);
         
         hangSystemwenchMotor = new VictorSP(2);
-        hangSystemflipMotor = new VictorSP(3);
+        flipSystemflipMotor = new VictorSP(3);
         hangSystemwenchPot = new AnalogInput(2);
-        hangSystemflipPot = new AnalogInput(3);
+        flipSystemflipPot = new AnalogInput(3);
         
         
     }

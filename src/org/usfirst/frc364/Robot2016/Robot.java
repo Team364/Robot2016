@@ -112,10 +112,12 @@ public class Robot extends IterativeRobot {
     }
     
 	public void smartDashVariables() {
-    	SmartDashboard.putNumber("PulleyPot", RobotMap.intakeSystemintakePot.getVoltage());
-    	SmartDashboard.putNumber("flipPot", RobotMap.hangSystemflipPot.getVoltage());
+    	SmartDashboard.putNumber("pulleyPot", RobotMap.intakeSystemintakePot.getVoltage());
+    	SmartDashboard.putNumber("flipPot", RobotMap.flipSystemflipPot.getVoltage());
     	SmartDashboard.putNumber("wenchPot", RobotMap.hangSystemwenchPot.getVoltage());
     	SmartDashboard.putBoolean("BallSensor", RobotMap.intakeSystemballSensor.get());
+    	SmartDashboard.putNumber("flipperSpeed", RobotMap.flipSystemflipMotor.get());
+    	SmartDashboard.putNumber("wenchSpeed", RobotMap.hangSystemwenchMotor.get());
     }
 
 	public static Subsystem flipSystem() {

@@ -14,6 +14,8 @@ package org.usfirst.frc364.Robot2016;
 import org.usfirst.frc364.Robot2016.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 import org.usfirst.frc364.Robot2016.subsystems.*;
 
 public class OI {
@@ -21,13 +23,48 @@ public class OI {
     public Joystick leftStick;
     public Joystick rightStick;
     public Joystick controller;
+    public JoystickButton intakeBall;
+    public JoystickButton flipHangBars;
+    public JoystickButton extendHangBars;
+    public JoystickButton hangFromCastle;
+    public JoystickButton flipManualUp;
+    public JoystickButton flipManualDown;
+    public JoystickButton wenchManualUp;
+    public JoystickButton wenchManualDown;
+    public JoystickButton shoot;
 
     public OI() {
 
         controller = new Joystick(2);
         
-        rightStick = new Joystick(1);
+        intakeBall = new JoystickButton(controller, 5);
+        intakeBall.whenPressed(new intakeCommand());
         
+        flipHangBars = new JoystickButton(controller, 4);
+        flipHangBars.whenPressed(new flipCommand());
+        
+        extendHangBars = new JoystickButton(controller, 3);
+        extendHangBars.whenPressed(new flipCommand());
+        
+        hangFromCastle = new JoystickButton(controller, 2);
+        hangFromCastle.whenPressed(new hangCommand());
+        
+        flipManualUp = new JoystickButton(controller, 1);
+        flipManualUp.whenPressed(new flipCommand());
+        
+        flipManualDown = new JoystickButton(controller, 7);
+        flipManualDown.whenPressed(new flipCommand());
+        
+        wenchManualUp = new JoystickButton(controller, 8);
+        wenchManualUp.whenPressed(new hangCommand());
+        
+        wenchManualDown = new JoystickButton(controller, 9);
+        wenchManualDown.whenPressed(new hangCommand());
+        
+        shoot = new JoystickButton(controller, 6);
+        shoot.whenPressed(new shootCommand());
+        
+        rightStick = new Joystick(1);
         leftStick = new Joystick(0);
         
     }
