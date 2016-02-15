@@ -26,13 +26,14 @@ public class shootSystem extends Subsystem {
     
     public void shoot() {
     	intakeMotor.set(-0.3);
-    	Timer.delay(0.4);
+    	Timer.delay(0.7);
     	intakeMotor.set(0);
     	shootMotor.set(1);
-    	Timer.delay(1);
+    	Timer.delay(2);
     	intakeMotor.set(1);
-    	Timer.delay(0.5);
+    	Timer.delay(1.5);
     	intakeMotor.set(0);
+    	shootMotor.set(0);
     }
 
     public void initDefaultCommand() {

@@ -10,8 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class flipCommand extends Command {
 	
-	boolean up = Robot.oi.controller.getRawButton(4);
-	boolean down = Robot.oi.controller.getRawButton(1);
 	//boolean flipHangers = Robot.oi.controller.getRawButton(2);
 
     public flipCommand() {
@@ -24,6 +22,10 @@ public class flipCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	boolean up = Robot.oi.controller.getRawButton(4);
+    	boolean down = Robot.oi.controller.getRawButton(1);
+    	
     	if(up == true) {
     		Robot.flipSystem.manualFlip(1);
     	} if(down == true) {

@@ -28,15 +28,19 @@ public class intakeCommand extends Command {
     protected void execute() {
     	boolean intakeBall = Robot.oi.controller.getRawButton(6);
     	double yaxis = Robot.oi.controller.getRawAxis(1);
-    	double xaxis = Robot.oi.controller.getRawAxis(2);
+    	double xaxis = Robot.oi.controller.getRawAxis(5);
     	
     	//This runs the manual intake
     	if(yaxis > 0.05 || yaxis < -0.05) { 
         	Robot.intakeSystem.manualIntake(yaxis);
+    	} else {
+    		Robot.intakeSystem.manualIntake(0);
     	}
     	//This runs the manual pulley
     	if(xaxis > 0.05 || xaxis < -0.05) {
     		Robot.intakeSystem.manualPulley(xaxis);
+    	} else {
+    		Robot.intakeSystem.manualPulley(0);
     	}
     	/*
     	//This runs the intake ball sequence

@@ -16,8 +16,6 @@ import org.usfirst.frc364.Robot2016.Robot;
 
 public class shootCommand extends Command {
 	
-	boolean shootButton = Robot.oi.controller.getRawButton(6);
-
     public shootCommand() {
     	requires(Robot.shootSystem);
     }
@@ -28,8 +26,12 @@ public class shootCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	boolean shootButton = Robot.oi.controller.getRawButton(6);
+
     	if(shootButton == true) {
     		Robot.shootSystem.shoot();
+    	} else {
     	}
     }
 
