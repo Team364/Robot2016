@@ -6,8 +6,6 @@ import org.usfirst.frc364.Robot2016.subsystems.flipSystem;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class flipCommand extends Command {
-	
-	//boolean flipHangers = Robot.oi.controller.getRawButton(2);
 
     public flipCommand() {
         requires(Robot.flipSystem);
@@ -24,12 +22,11 @@ public class flipCommand extends Command {
     		Robot.flipSystem.manualFlip(1);
     	} if(Robot.oi.flipManualDown.get() == true) {
     		Robot.flipSystem.manualFlip(-1);
-    	} else {
-    		Robot.flipSystem.manualFlip(0);
-    	}
-    	if(Robot.oi.flipHangBars.get() == true) {
+    	} if(Robot.oi.flipHangBars.get() == true) {
     		Robot.flipSystem.flipHangBars();
     		Robot.hangSystem.extendHangBars();
+    	} else {
+    		Robot.flipSystem.manualFlip(0);
     	}
 
     }

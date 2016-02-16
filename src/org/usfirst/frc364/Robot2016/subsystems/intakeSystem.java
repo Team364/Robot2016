@@ -6,6 +6,7 @@ import org.usfirst.frc364.Robot2016.commands.intakeCommand;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class intakeSystem extends PIDSubsystem {
@@ -14,23 +15,23 @@ public class intakeSystem extends PIDSubsystem {
     private DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
     private AnalogInput intakePot = RobotMap.intakeSystemintakePot;
     private SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
-	
+
     public intakeSystem() {
 		super("intakeSystem", 1.0, 0.0, 0.0);
 		enable();
 		setAbsoluteTolerance(0);
 		getPIDController().setContinuous(false);
 		getPIDController().setOutputRange(-1, 1);
-		setSetpoint(1);
+		setSetpoint(0.005);
 	}
-    
+
     public void intakeBall() {
 
     	// Set the position for the pulley.
-    	setSetpoint(1);
+    	setSetpoint(0.955);
     	
     	// Run a loop that waits until the ball comes into the robot.
-    	for(int i = 1; i < 0; i++) {
+    	for(int i = 1; i > 0; i++) {
     		if(ballSensor.get() == true) {
     			intakeMotor.set(1);
     		} else {
@@ -39,9 +40,10 @@ public class intakeSystem extends PIDSubsystem {
     		}
     			
     	}
+
     	
     	// Set the position for the pulley.
-    	setSetpoint(1);
+    	setSetpoint(0.005);
     	
     }
 
@@ -50,7 +52,7 @@ public class intakeSystem extends PIDSubsystem {
     }
     
     public void manualPulley(double speed) {
-    	intakePulley.set(speed);
+    	intakePulley.set(speed + intakePot.getVoltage());
     }
 
     public void initDefaultCommand() {
@@ -66,5 +68,6 @@ public class intakeSystem extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		intakePulley.set(output);
 	}
+
 }
 

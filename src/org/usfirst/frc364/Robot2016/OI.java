@@ -32,6 +32,8 @@ public class OI {
     public JoystickButton wenchManualUp;
     public JoystickButton wenchManualDown;
     public JoystickButton shoot;
+    public JoystickButton rearCamSelect;
+    public JoystickButton frontCamSelect;
 
     public OI() {
 
@@ -40,32 +42,39 @@ public class OI {
         intakeBall = new JoystickButton(controller, 5);
         intakeBall.whenPressed(new intakeCommand());
         
-        flipHangBars = new JoystickButton(controller, 4);
+        flipHangBars = new JoystickButton(controller, 7);
         flipHangBars.whenPressed(new flipCommand());
         
-        extendHangBars = new JoystickButton(controller, 3);
+        extendHangBars = new JoystickButton(controller, 8);
         extendHangBars.whenPressed(new flipCommand());
         
-        hangFromCastle = new JoystickButton(controller, 2);
+        hangFromCastle = new JoystickButton(controller, 9);
         hangFromCastle.whenPressed(new hangCommand());
         
-        flipManualUp = new JoystickButton(controller, 1);
+        flipManualUp = new JoystickButton(controller, 4);
         flipManualUp.whenPressed(new flipCommand());
         
-        flipManualDown = new JoystickButton(controller, 7);
+        flipManualDown = new JoystickButton(controller, 1);
         flipManualDown.whenPressed(new flipCommand());
         
-        wenchManualUp = new JoystickButton(controller, 8);
+        wenchManualUp = new JoystickButton(controller, 2);
         wenchManualUp.whenPressed(new hangCommand());
         
-        wenchManualDown = new JoystickButton(controller, 9);
+        wenchManualDown = new JoystickButton(controller, 3);
         wenchManualDown.whenPressed(new hangCommand());
         
         shoot = new JoystickButton(controller, 6);
         shoot.whenPressed(new shootCommand());
         
         rightStick = new Joystick(1);
+        
+        rearCamSelect = new JoystickButton(rightStick, 1);
+        rearCamSelect.whenPressed(new cameraCommand());
+        
         leftStick = new Joystick(0);
+        
+        frontCamSelect = new JoystickButton(leftStick, 1);
+        frontCamSelect.whenPressed(new cameraCommand());
         
     }
 

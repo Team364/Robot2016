@@ -11,7 +11,7 @@ public class flipSystem extends PIDSubsystem {
 
 	public SpeedController flipMotor = RobotMap.flipSystemflipMotor;
 	public static AnalogInput flipPot = RobotMap.flipSystemflipPot;
-	
+
     public flipSystem() {
     	
     	super("flipSystem", 1, 0.0, 0.1);
@@ -19,10 +19,10 @@ public class flipSystem extends PIDSubsystem {
 		setAbsoluteTolerance(0);
 		getPIDController().setContinuous(false);
 		getPIDController().setOutputRange(-1, 1);
-    	setSetpoint(1);
+    	setSetpoint(0.01);
     	
     }
-    
+
     public void initDefaultCommand() {
     	setDefaultCommand(new flipCommand());
     }
@@ -32,9 +32,9 @@ public class flipSystem extends PIDSubsystem {
 	}
 	
 	public void flipHangBars() {
-		setSetpoint(1);
+		setSetpoint(0.55);
 	}
-    
+
     protected double returnPIDInput() {
     	return flipPot.getAverageVoltage();
     }

@@ -13,12 +13,24 @@ public class cameraCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.cameraSystem.configureCameraFeed();
+    	Robot.cameraSystem.camera = 0;
+    	Robot.cameraSystem.configureCameraFeed(0);
+    	Robot.cameraSystem.getCameraFeed(0);
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cameraSystem.getCameraFeed();
+    	if(Robot.oi.frontCamSelect.get() == true) {
+    		Robot.cameraSystem.camera = 1;
+    		Robot.cameraSystem.configureCameraFeed(1);
+    		Robot.cameraSystem.getCameraFeed(1);
+    	} if(Robot.oi.rearCamSelect.get() == true) {
+    		Robot.cameraSystem.camera = 0;
+    		Robot.cameraSystem.configureCameraFeed(0);
+    		Robot.cameraSystem.getCameraFeed(0);
+    	}
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

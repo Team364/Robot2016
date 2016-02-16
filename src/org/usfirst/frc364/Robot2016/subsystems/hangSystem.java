@@ -11,14 +11,14 @@ public class hangSystem extends PIDSubsystem {
 
 	public SpeedController wenchMotor = RobotMap.hangSystemwenchMotor;
 	public static AnalogInput wenchPot = RobotMap.hangSystemwenchPot;
-	
+
 	public hangSystem() {
 		super("hangSystem", 1.0, 0.0, 0.0);
 		enable();
 		setAbsoluteTolerance(0);
 		getPIDController().setContinuous(false);
 		getPIDController().setOutputRange(-1, 1);
-		setSetpoint(1);
+		setSetpoint(0.33);
 	}
 
 	public void extendHangBars() {

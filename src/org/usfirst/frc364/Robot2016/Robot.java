@@ -118,6 +118,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("BallSensor", RobotMap.intakeSystemballSensor.get());
     	SmartDashboard.putNumber("flipperSpeed", RobotMap.flipSystemflipMotor.get());
     	SmartDashboard.putNumber("wenchSpeed", RobotMap.hangSystemwenchMotor.get());
+    	SmartDashboard.putNumber("intakeSpeed", RobotMap.intakeSystemintakePulley.get());
     }
 
 	public static Subsystem flipSystem() {
