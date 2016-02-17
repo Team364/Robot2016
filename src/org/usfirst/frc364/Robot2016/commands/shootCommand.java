@@ -16,11 +16,21 @@ public class shootCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	boolean shootButton = Robot.oi.controller.getRawButton(6);
-
+    	boolean shootButton = Robot.oi.shoot.get();
+    	boolean shootManual = Robot.oi.shootManual.get();
+    	
     	if(shootButton == true) {
     		Robot.shootSystem.shoot();
+    	} else {
+    		if(shootManual == true) {
+    			Robot.shootSystem.shootManual((Robot.oi.controller.getRawAxis(0) + 1) * 0.5);
+    		} else { 
+    			Robot.shootSystem.shootManual(0);
+    		}
     	}
+    	
+
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

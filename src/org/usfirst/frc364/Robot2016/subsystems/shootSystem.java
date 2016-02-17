@@ -1,7 +1,10 @@
 package org.usfirst.frc364.Robot2016.subsystems;
 
+import java.awt.Robot;
+
 import org.usfirst.frc364.Robot2016.RobotMap;
 import org.usfirst.frc364.Robot2016.commands.shootCommand;
+
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -34,6 +37,10 @@ public class shootSystem extends Subsystem {
     public void shoot() {
     	Thread shootThread = new Thread();
     	shootThread.start();
+    }
+    
+    public void shootManual() {
+    	shootMotor.set(Robot.oi.controller.getRawAxis(0));
     }
 
     public void initDefaultCommand() {
