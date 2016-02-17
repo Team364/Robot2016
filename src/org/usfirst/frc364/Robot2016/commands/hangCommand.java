@@ -28,7 +28,7 @@ public class hangCommand extends Command {
     		
     	} if(Robot.oi.hangFromCastle.get() == true) {
     		
-    		Robot.hangSystem.hangFromCastle();
+    		//Robot.hangSystem.hangFromCastle();
     	
     	} else {
     		

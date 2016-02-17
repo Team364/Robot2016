@@ -11,6 +11,7 @@
 
 package org.usfirst.frc364.Robot2016;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -28,12 +29,11 @@ public class RobotMap {
     public static SpeedController driveSystemrightFront;
     public static SpeedController driveSystemrightRear;
     public static RobotDrive driveSystemrobotDrive;
-    public static DoubleSolenoid shiftSystemleftShifter;
-    public static DoubleSolenoid shiftSystemrightShifter;
     public static SpeedController intakeSystemintakeMotor;
     public static DigitalInput intakeSystemballSensor;
     public static SpeedController shootSystemshootMotor;
-    public static AnalogInput driveSystemgyro;
+    public static SpeedController shootSystemshootMotor2;
+    public static AnalogGyro driveSystemgyro;
     public static SpeedController hangSystemwenchMotor;
     public static SpeedController flipSystemflipMotor;
     public static AnalogInput hangSystemwenchPot;
@@ -50,19 +50,20 @@ public class RobotMap {
         
         driveSystemrobotDrive = new RobotDrive(driveSystemleftFront, driveSystemleftRear,
               driveSystemrightFront, driveSystemrightRear);
-        
+        		
         driveSystemrobotDrive.setSafetyEnabled(true);
         driveSystemrobotDrive.setExpiration(0.1);
         driveSystemrobotDrive.setSensitivity(0.5);
         driveSystemrobotDrive.setMaxOutput(1.0);
-        driveSystemgyro = new AnalogInput(0);
+        driveSystemgyro = new AnalogGyro(0);
 
-        intakeSystemintakeMotor = new VictorSP(6); 
-        intakeSystemballSensor = new DigitalInput(0);
+        intakeSystemintakeMotor = new VictorSP(8); 
+        intakeSystemballSensor = new DigitalInput(9);
         intakeSystemintakePot = new AnalogInput(1);
         intakeSystemintakePulley = new VictorSP(9);
         
         shootSystemshootMotor = new VictorSP(7);
+        shootSystemshootMotor2 = new VictorSP(6);
         
         hangSystemwenchMotor = new VictorSP(2);
         flipSystemflipMotor = new VictorSP(3);

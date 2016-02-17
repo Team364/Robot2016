@@ -22,15 +22,15 @@ public class hangSystem extends PIDSubsystem {
 	}
 
 	public void extendHangBars() {
-		setSetpoint(1);
+		//setSetpoint(1);
 	}
 	
 	public void hangFromCastle() {
-		setSetpoint(1);
+		//setSetpoint(1);
 	}
 
 	public void manualWench(double power) {
-		setSetpoint(power + wenchPot.getVoltage());
+		setSetpoint((power * 0.03) + wenchPot.getVoltage());
 	}
 	
     public void initDefaultCommand() {

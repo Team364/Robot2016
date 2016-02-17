@@ -20,7 +20,6 @@ public class shootCommand extends Command {
 
     	if(shootButton == true) {
     		Robot.shootSystem.shoot();
-    	} else {
     	}
     }
 

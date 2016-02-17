@@ -23,8 +23,8 @@ public class flipCommand extends Command {
     	} if(Robot.oi.flipManualDown.get() == true) {
     		Robot.flipSystem.manualFlip(-1);
     	} if(Robot.oi.flipHangBars.get() == true) {
-    		Robot.flipSystem.flipHangBars();
-    		Robot.hangSystem.extendHangBars();
+    		//Robot.flipSystem.flipHangBars();
+    		//Robot.hangSystem.extendHangBars();
     	} else {
     		Robot.flipSystem.manualFlip(0);
     	}

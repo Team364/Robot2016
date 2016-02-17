@@ -28,11 +28,11 @@ public class flipSystem extends PIDSubsystem {
     }
     
 	public void manualFlip(double power) {
-		setSetpoint(power + flipPot.getVoltage());
+		//setSetpoint(power + flipPot.getVoltage());
 	}
 	
 	public void flipHangBars() {
-		setSetpoint(0.55);
+		//setSetpoint(0.55);
 	}
 
     protected double returnPIDInput() {
@@ -40,7 +40,7 @@ public class flipSystem extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-    	flipMotor.set(output);
+    	flipMotor.set(0);
     }
 
 }

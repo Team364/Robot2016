@@ -22,15 +22,17 @@ public class cameraSystem extends Subsystem {
     }
 
 	public void configureCameraFeed(int camera) {
+
 		if(camera == 0) {
 			NIVision.IMAQdxConfigureGrab(rearCam);
 		} if (camera == 1) {
 			NIVision.IMAQdxConfigureGrab(frontCam);
 		}
-		
+
 	}
 	
 	public void getCameraFeed(int camera) {
+		/*
 		if(camera == 0) {
 			NIVision.IMAQdxGrab(rearCam, frame, 0);
 			server.setImage(frame);
@@ -38,6 +40,7 @@ public class cameraSystem extends Subsystem {
 			NIVision.IMAQdxGrab(frontCam, frame, 0);
 			server.setImage(frame);
 		}
+		*/
 
 	}
 

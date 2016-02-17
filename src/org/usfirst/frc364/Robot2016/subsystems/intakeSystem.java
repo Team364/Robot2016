@@ -10,11 +10,32 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class intakeSystem extends PIDSubsystem {
-
-	private SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
-    private DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
-    private AnalogInput intakePot = RobotMap.intakeSystemintakePot;
-    private SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
+	
+	public SpeedController intakeMotor = RobotMap.intakeSystemintakeMotor;
+    public DigitalInput ballSensor = RobotMap.intakeSystemballSensor;
+    public AnalogInput intakePot = RobotMap.intakeSystemintakePot;
+    public SpeedController intakePulley = RobotMap.intakeSystemintakePulley;
+    
+	public class intakeThread extends Thread {	
+		@Override
+		public void run() {
+			for(int i = 1; i > 0; i++) {
+				if(ballSensor.get() == true) {
+					setSetpoint(3.8);
+					intakeMotor.set(1);
+				} else {
+					pullIntakeUp();
+					intakeMotor.set(0);
+					i = -1;
+				}
+				Timer.delay(0.05);
+			}
+		}
+	}
+	
+    public void initDefaultCommand() {
+    	setDefaultCommand(new intakeCommand());
+    }
 
     public intakeSystem() {
 		super("intakeSystem", 1.0, 0.0, 0.0);
@@ -22,29 +43,16 @@ public class intakeSystem extends PIDSubsystem {
 		setAbsoluteTolerance(0);
 		getPIDController().setContinuous(false);
 		getPIDController().setOutputRange(-1, 1);
-		setSetpoint(0.005);
+		setSetpoint(1.3);
 	}
 
-    public void intakeBall() {
-
-    	// Set the position for the pulley.
-    	setSetpoint(0.955);
-    	
-    	// Run a loop that waits until the ball comes into the robot.
-    	for(int i = 1; i > 0; i++) {
-    		if(ballSensor.get() == true) {
-    			intakeMotor.set(1);
-    		} else {
-    			intakeMotor.set(0);
-    			i = -1;
-    		}
-    			
-    	}
-
-    	
-    	// Set the position for the pulley.
-    	setSetpoint(0.005);
-    	
+    public void intakeBall() {	
+    	Thread intakeThread = new Thread();
+    	intakeThread.start();	
+    }
+    
+    void pullIntakeUp() {
+    	setSetpoint(1.3);
     }
 
     public void manualIntake(double speed) {
@@ -52,11 +60,7 @@ public class intakeSystem extends PIDSubsystem {
     }
     
     public void manualPulley(double speed) {
-    	intakePulley.set(speed + intakePot.getVoltage());
-    }
-
-    public void initDefaultCommand() {
-    	setDefaultCommand(new intakeCommand());
+    	setSetpoint((speed * 0.03) + intakePot.getVoltage());
     }
 
 	@Override

@@ -11,7 +11,6 @@
 
 package org.usfirst.frc364.Robot2016;
 
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -21,9 +20,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc364.Robot2016.commands.*;
 import org.usfirst.frc364.Robot2016.subsystems.*;
-
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.Image;
 
 public class Robot extends IterativeRobot {
 
@@ -115,10 +111,11 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("pulleyPot", RobotMap.intakeSystemintakePot.getVoltage());
     	SmartDashboard.putNumber("flipPot", RobotMap.flipSystemflipPot.getVoltage());
     	SmartDashboard.putNumber("wenchPot", RobotMap.hangSystemwenchPot.getVoltage());
-    	SmartDashboard.putBoolean("BallSensor", RobotMap.intakeSystemballSensor.get());
+    	SmartDashboard.putBoolean("ballSensor", RobotMap.intakeSystemballSensor.get());
     	SmartDashboard.putNumber("flipperSpeed", RobotMap.flipSystemflipMotor.get());
     	SmartDashboard.putNumber("wenchSpeed", RobotMap.hangSystemwenchMotor.get());
     	SmartDashboard.putNumber("intakeSpeed", RobotMap.intakeSystemintakePulley.get());
+    	SmartDashboard.putNumber("intakeSetpoint", Robot.intakeSystem.getSetpoint());
     }
 
 	public static Subsystem flipSystem() {
